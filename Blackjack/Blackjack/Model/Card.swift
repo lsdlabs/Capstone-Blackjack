@@ -47,16 +47,22 @@ class Card{
     //legitimate/acceptable/valid
     //func or class func?
     
-    func legitimateSuits()-> [String] {
+    class func legitimateSuits()-> [String] {
         return ["Spades", "Hearts", "Diamonds", "Clubs"]
     }
+//    func legitimateSuits()-> [String] {
+//        return ["Spades", "Hearts", "Diamonds", "Clubs"]
+//    }
 //    func legitimateSuits()-> [String] {
 //        return ["♠️", "♥️", "♦️", "♣️"]
 //    }
     
-    func legitimateRanks()-> [String] {
+//    func legitimateRanks()-> [String] {
+//        return ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+//    }
+    class func legitimateRanks()-> [String] {
         return ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-    }
+}
 }
 
 //description/representatio/rendition/illustration/portrayal

@@ -13,6 +13,7 @@
 		2071DEC8216B902D00996982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2071DEC7216B902D00996982 /* Assets.xcassets */; };
 		2071DECB216B902D00996982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2071DEC9216B902D00996982 /* LaunchScreen.storyboard */; };
 		2071DED6216BAA9900996982 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071DED5216BAA9900996982 /* Card.swift */; };
+		2071DED8216BCC7200996982 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071DED7216BCC7200996982 /* Deck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2071DECA216B902D00996982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2071DECC216B902D00996982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2071DED5216BAA9900996982 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		2071DED7216BCC7200996982 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				2071DED5216BAA9900996982 /* Card.swift */,
+				2071DED7216BCC7200996982 /* Deck.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2071DED8216BCC7200996982 /* Deck.swift in Sources */,
 				2071DEC3216B902700996982 /* ViewController.swift in Sources */,
 				2071DED6216BAA9900996982 /* Card.swift in Sources */,
 				2071DEC1216B902700996982 /* AppDelegate.swift in Sources */,
