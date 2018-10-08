@@ -58,7 +58,13 @@ class Deck{
             let randomCard = undealtCards.remove(at: randomIndex)
             shuffledCards.append(randomCard)
         }
-        
+        undealtCards = shuffledCards
+    }
+    
+    func shuffle(){
+        self.undealtCards.append(contentsOf: dealtCards)
+        self.dealtCards.removeAll()
+        self.randomizeCards()
     }
     
 }
