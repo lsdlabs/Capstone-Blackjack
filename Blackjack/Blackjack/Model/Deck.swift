@@ -38,4 +38,12 @@ class Deck{
         return summary
     }
     
+    func drawCard()-> Card{
+        let card = undealtCards.removeLast()
+        self.dealtCards.append(card)
+        return card
+    }
+    
+    
+    
 }
