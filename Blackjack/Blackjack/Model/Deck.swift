@@ -32,11 +32,8 @@ class Deck{
     
     //getSummary() or getDescription()
     private func getSummary()-> String{
-        var summary = "Deck"
-        summary += "\n Cards Left: "
-        summary += descriptionFor(cardArray: undealtCards)
-        summary += "\n Cards Dealt: "
-        summary += descriptionFor(cardArray: dealtCards)
+        var summary = "Deck\n Cards Left: " + descriptionFor(cardArray: undealtCards)
+        summary += "\n Cards Dealt: " + descriptionFor(cardArray: dealtCards)
         
         return summary
     }
