@@ -44,6 +44,21 @@ class Deck{
         return card
     }
     
-    
+    //maxNumberOfCardsToShuffle, availableNumberOfCardsToShuffle, maximumNumberOfAvailableCardsToShuffle, etc.
+    func randomizeCards(){
+        var shuffledCards: [Card] = []
+        
+        let maxNumberOfCardsToShuffle = undealtCards.count
+        
+        for index in 0..<maxNumberOfCardsToShuffle{
+            //let randomIndex = Int.random(undealtCards.count)
+            //letRandomIndex = undealtCards.shuffle(using: myGenerator)
+            let randomIndex = Int(arc4random_uniform(UInt32(undealtCards.count)))
+            
+            let randomCard = undealtCards.remove(at: randomIndex)
+            shuffledCards.append(randomCard)
+        }
+        
+    }
     
 }
