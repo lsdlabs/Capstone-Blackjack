@@ -15,7 +15,8 @@ class Card{
     //var cardLabel: String = ""
     private var cardLabel = "" //had to change because it complained about self in init()
     //var cardValue: Int = 0
-    private var cardValue: Int = 0 //had to change because it complained about self in init()
+    //private(set) var cardValue: Int = 0 //had to change because it complained about self in init()
+     var cardValue: Int = 0 
 //    var description: String {
 //        get{
 //            return cardLabel
@@ -31,6 +32,7 @@ class Card{
         self.cardValue = getCardValue(with: rank)
     }
     
+    ///The getCardValue method takes in a String parameter and 
     private func getCardValue(with rank: String)-> Int{
         switch rank{
         case "A":
@@ -47,16 +49,22 @@ class Card{
     //legitimate/acceptable/valid
     //func or class func?
     
-    func legitimateSuits()-> [String] {
+    class func legitimateSuits()-> [String] {
         return ["Spades", "Hearts", "Diamonds", "Clubs"]
     }
+//    func legitimateSuits()-> [String] {
+//        return ["Spades", "Hearts", "Diamonds", "Clubs"]
+//    }
 //    func legitimateSuits()-> [String] {
 //        return ["♠️", "♥️", "♦️", "♣️"]
 //    }
     
-    func legitimateRanks()-> [String] {
+//    func legitimateRanks()-> [String] {
+//        return ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+//    }
+    class func legitimateRanks()-> [String] {
         return ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-    }
+}
 }
 
 //description/representatio/rendition/illustration/portrayal
