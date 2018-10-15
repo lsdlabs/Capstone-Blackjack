@@ -15,7 +15,8 @@ class Card{
     //var cardLabel: String = ""
     private var cardLabel = "" //had to change because it complained about self in init()
     //var cardValue: Int = 0
-    private var cardValue: Int = 0 //had to change because it complained about self in init()
+    //private(set) var cardValue: Int = 0 //had to change because it complained about self in init()
+     var cardValue: Int = 0 
 //    var description: String {
 //        get{
 //            return cardLabel
@@ -31,6 +32,7 @@ class Card{
         self.cardValue = getCardValue(with: rank)
     }
     
+    ///The getCardValue method takes in a String parameter and 
     private func getCardValue(with rank: String)-> Int{
         switch rank{
         case "A":

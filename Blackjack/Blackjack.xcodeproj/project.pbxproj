@@ -14,6 +14,11 @@
 		2071DECB216B902D00996982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2071DEC9216B902D00996982 /* LaunchScreen.storyboard */; };
 		2071DED6216BAA9900996982 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071DED5216BAA9900996982 /* Card.swift */; };
 		2071DED8216BCC7200996982 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071DED7216BCC7200996982 /* Deck.swift */; };
+		2071DEDA216C224500996982 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071DED9216C224500996982 /* Player.swift */; };
+		2071DEDC216D1B8100996982 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071DEDB216D1B8100996982 /* Dealer.swift */; };
+		2071DEDE216D1BA000996982 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071DEDD216D1BA000996982 /* House.swift */; };
+		2071DEE0216D3D8800996982 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071DEDF216D3D8800996982 /* HomeViewController.swift */; };
+		207D91F3216E4066006F0CE0 /* BlackjackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207D91F2216E4066006F0CE0 /* BlackjackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		2071DECC216B902D00996982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2071DED5216BAA9900996982 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		2071DED7216BCC7200996982 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		2071DED9216C224500996982 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		2071DEDB216D1B8100996982 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		2071DEDD216D1BA000996982 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		2071DEDF216D3D8800996982 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		207D91F2216E4066006F0CE0 /* BlackjackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +84,9 @@
 			children = (
 				2071DED5216BAA9900996982 /* Card.swift */,
 				2071DED7216BCC7200996982 /* Deck.swift */,
+				2071DED9216C224500996982 /* Player.swift */,
+				2071DEDB216D1B8100996982 /* Dealer.swift */,
+				2071DEDD216D1BA000996982 /* House.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -90,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				2071DEC2216B902700996982 /* ViewController.swift */,
+				2071DEDF216D3D8800996982 /* HomeViewController.swift */,
+				207D91F2216E4066006F0CE0 /* BlackjackViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,10 +180,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2071DEDE216D1BA000996982 /* House.swift in Sources */,
 				2071DED8216BCC7200996982 /* Deck.swift in Sources */,
 				2071DEC3216B902700996982 /* ViewController.swift in Sources */,
+				2071DEE0216D3D8800996982 /* HomeViewController.swift in Sources */,
+				2071DEDC216D1B8100996982 /* Dealer.swift in Sources */,
 				2071DED6216BAA9900996982 /* Card.swift in Sources */,
+				2071DEDA216C224500996982 /* Player.swift in Sources */,
 				2071DEC1216B902700996982 /* AppDelegate.swift in Sources */,
+				207D91F3216E4066006F0CE0 /* BlackjackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
