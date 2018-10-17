@@ -32,13 +32,7 @@ class BlackjackViewController: UIViewController {
     
     
     
-    func playBlackjack(withBetOf bet: Int){
-        let goodBet = dealer.placeBet(bet: bet)
-        if !goodBet{
-            return
-        }
-        print("The bet is \(bet)")
-    }
+
     
     
     @IBAction func playerPressedHit(_ sender: UIButton) {
