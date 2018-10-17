@@ -113,11 +113,17 @@
                                 <rect key="frame" x="172" y="551" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="HIT"/>
+                                <connections>
+                                    <action selector="playerPressedHit:" destination="J7x-HU-URa" eventType="touchUpInside" id="3vb-DS-PhD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCF-1d-g20">
                                 <rect key="frame" x="163" y="589" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="STAND"/>
+                                <connections>
+                                    <action selector="playerPressedStand:" destination="J7x-HU-URa" eventType="touchUpInside" id="NnY-gF-JkU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.61000358629999996" green="1" blue="0.60047965839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

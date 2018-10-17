@@ -110,6 +110,12 @@ class BlackjackViewController: UIViewController {
         print("The bet is \(bet)")
     }
     
-
+    
+    @IBAction func playerPressedHit(_ sender: UIButton) {
+    }
+    
+    @IBAction func playerPressedStand(_ sender: UIButton) {
+    }
+    
     
 }
