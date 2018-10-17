@@ -19,10 +19,12 @@ class BlackjackViewController: UIViewController {
     
     @IBOutlet weak var standButton: UIButton!
     
+    
+    let dealer = Dealer()
+    let house = House.init(name: "House")
+    let player = Player(name: "Player")
     //1. initialise the deck
     let deck = Deck.init()
-    let dealer = Dealer()
-    
     
     
     override func viewDidLoad() {
