@@ -132,7 +132,9 @@
                     <connections>
                         <outlet property="dealerCards" destination="VzI-9t-a6D" id="SMD-Dl-NFE"/>
                         <outlet property="gameEventLabel" destination="unA-iT-FuI" id="Lha-YH-4rR"/>
+                        <outlet property="hitButton" destination="Dh4-Al-4jQ" id="wCC-1z-814"/>
                         <outlet property="playerCards" destination="9AF-zy-1gg" id="qmb-iw-CUk"/>
+                        <outlet property="standButton" destination="bCF-1d-g20" id="YTj-QZ-eER"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcO-pG-BW6" userLabel="First Responder" sceneMemberID="firstResponder"/>

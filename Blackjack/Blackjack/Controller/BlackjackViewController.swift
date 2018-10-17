@@ -15,6 +15,10 @@ class BlackjackViewController: UIViewController {
     @IBOutlet weak var playerCards: UILabel!
     @IBOutlet weak var dealerCards: UILabel!
     
+    @IBOutlet weak var hitButton: UIButton!
+    
+    @IBOutlet weak var standButton: UIButton!
+    
     //1. initialise the deck
     let deck = Deck.init()
     let dealer = Dealer()
