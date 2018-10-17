@@ -28,7 +28,7 @@ class Card{
     init(withSuit suit: String, withRank rank: String){
         self.suit = suit
         self.rank = rank
-        self.cardLabel = "\(suit)\(rank)"
+        self.cardLabel = "\(rank) of \(suit)"
         self.cardValue = getCardValue(with: rank)
     }
     
