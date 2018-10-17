@@ -69,7 +69,8 @@ class Card{
 
 //description/representatio/rendition/illustration/portrayal
 func descriptionFor(cardArray: [Card]) -> String {
-    var description = "\(cardArray.count)"
+//    var description = "\(cardArray.count)"
+    var description = ""
     var count = 0
     for eachCard in cardArray{
         if count % 13 == 0 {
