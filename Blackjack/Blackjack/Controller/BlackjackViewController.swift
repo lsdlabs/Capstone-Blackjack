@@ -47,9 +47,42 @@ class BlackjackViewController: UIViewController {
     
     
     @IBAction func playerPressedHit(_ sender: UIButton) {
+        
+        hitButton.isEnabled = true
+        player.cards.append(deck.drawCard())
+        playerCards.text = player.cardsInHand
+        print(deck.summary)
+        
+        if player.busted{
+            print("The House Won :(")
+            gameEventLabel.text = "The House Won"
+            hitButton.isEnabled = false
+            
+            while house.mustHit{
+                dealer.turn(house: house)
+                dealerCards.text = house.cardsInHand
+                print(house.cardsInHand)
+            }
+            
+            dealer.turn(house: house)
+            dealerCards.text = house.cardsInHand
+        }
+        
     }
     
     @IBAction func playerPressedStand(_ sender: UIButton) {
+        hitButton.isEnabled = false
+        dealer.turn(house: house)
+        dealerCards.text = house.cardsInHand
+        
+        
+        while house.mustHit{
+            dealer.turn(house: house)
+            dealerCards.text = house.cardsInHand
+            print(house.cardsInHand)
+        }
+        
+        gameEventLabel.text = dealer.winner()
     }
     
     
