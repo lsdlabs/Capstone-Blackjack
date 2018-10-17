@@ -29,7 +29,20 @@ class BlackjackViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(deck.summary)
+        deck.shuffle()
+        print(deck.summary)
         
+        house.cards.append(deck.drawCard())
+        house.cards.append(deck.drawCard())
+        print(house.cardsInHand)
+        dealerCards.text = house.cardsInHand
+        
+        player.cards.append(deck.drawCard())
+        player.cards.append(deck.drawCard())
+        print(player.cardsInHand)
+        playerCards.text = player.cardsInHand
+        print(deck.summary)
     }
     
     
