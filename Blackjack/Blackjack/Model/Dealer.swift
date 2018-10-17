@@ -76,6 +76,17 @@ class Dealer{
                 return "house"
             }
         }
+        ///////
+        if !player.busted && player.handScore > house.handScore {
+            return "player"
+        }
+        if !house.busted && house.handScore > player.handScore {
+            return "house"
+        }
+        if player.handScore == house.handScore {
+            return "draw"
+        }
+        ///////
         return "no"
     }
     
