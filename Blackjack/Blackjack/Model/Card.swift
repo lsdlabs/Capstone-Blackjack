@@ -49,12 +49,15 @@ class Card{
     //legitimate/acceptable/valid
     //func or class func?
     
-    class func legitimateSuits()-> [String] {
-        return ["Spades", "Hearts", "Diamonds", "Clubs"]
-    }
+//    class func legitimateSuits()-> [String] {
+//        return ["Spades", "Hearts", "Diamonds", "Clubs"]
+//    }
 //    func legitimateSuits()-> [String] {
 //        return ["Spades", "Hearts", "Diamonds", "Clubs"]
 //    }
+    class func legitimateSuits()-> [String] {
+                return ["♠️", "♥️", "♦️", "♣️"]
+            }
 //    func legitimateSuits()-> [String] {
 //        return ["♠️", "♥️", "♦️", "♣️"]
 //    }
