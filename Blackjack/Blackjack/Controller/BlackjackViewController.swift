@@ -20,19 +20,11 @@ class BlackjackViewController: UIViewController {
     let dealer = Dealer()
     
     
-    var label = "" {
-        didSet {
-            gameEventLabel.text = "Score: \(label)"
-        }
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-    
-    
-    
-
     
     
     @IBAction func playerPressedHit(_ sender: UIButton) {
