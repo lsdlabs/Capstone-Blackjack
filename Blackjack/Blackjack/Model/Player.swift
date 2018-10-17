@@ -33,6 +33,10 @@ class Player{
         return self.getStats()
     }
     
+    ///////
+    var cardsInHand: String{ return self.getCardsInHand()}
+    ///////
+    
     init(name: String){
         self.name = name
     }
@@ -43,6 +47,13 @@ class Player{
         stats += "\n stayed: \(stayed)\n money: \(money)"
         return stats
     }
+    
+    ///////
+    private func getCardsInHand()-> String {
+        var cards = descriptionFor(cardArray: self.cards)
+        return cards
+    }
+    ///////
     
     private func getHandScore()-> Int{
         var score: Int = 0
