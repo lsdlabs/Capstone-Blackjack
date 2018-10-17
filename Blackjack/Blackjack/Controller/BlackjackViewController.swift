@@ -30,9 +30,7 @@ class BlackjackViewController: UIViewController {
         
     }
     
-    @objc func showLabel() {
-        gameEventLabel.isHidden = false
-    }
+    
     
     func playBlackjack(withBetOf bet: Int){
         let goodBet = dealer.placeBet(bet: bet)
