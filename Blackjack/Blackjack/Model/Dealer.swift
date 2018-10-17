@@ -53,42 +53,96 @@ class Dealer{
         }
     }
     
-    func winner()->String{
-        if player.blackjack && !house.blackjack{
+//    func winner()->String{
+//        if player.blackjack && !house.blackjack{
+//            return "player"
+//        }
+//        if !player.blackjack && house.blackjack{
+//            return "house"
+//        }
+//        if player.busted{
+//            return "house"
+//        }
+//        if house.busted{
+//            return "player"
+//        }
+//        if player.cards.count == 9 && !player.busted { //changed from 5 to 9
+//            return "player"
+//        }
+//        if house.stayed && player.stayed{
+//            if player.handScore > house.handScore{
+//                return "player"
+//            } else {
+//                return "house"
+//            }
+//        }
+//        ///////
+//        if !player.busted && player.handScore > house.handScore {
+//            return "player"
+//        }
+//        if !house.busted && house.handScore > player.handScore {
+//            return "house"
+//        }
+//        if player.handScore == house.handScore {
+//            return "draw"
+//        }
+//        ///////
+//        return "no"
+//    }
+    
+    func winner() ->String {
+        if player.blackjack && house.blackjack {
+            return "draw"
+        } else if player.blackjack && !house.blackjack {
             return "player"
-        }
-        if !player.blackjack && house.blackjack{
+        } else if !player.blackjack && house.blackjack {
             return "house"
-        }
-        if player.busted{
+        } else if player.busted && house.busted {
+            return "draw"
+        } else if player.busted && !house.busted {
             return "house"
-        }
-        if house.busted{
+        } else if !player.busted && house.busted {
             return "player"
-        }
-        if player.cards.count == 5 && !player.busted {
+        } else if player.cards.count == 9 && !player.busted {
             return "player"
-        }
-        if house.stayed && player.stayed{
-            if player.handScore > house.handScore{
+        } else if house.stayed && player.stayed && player.handScore == house.handScore{
+                return "draw"
+        } else if house.stayed && player.stayed && player.busted && house.busted {
+            return "draw"
+        } else if  house.stayed && player.stayed && player.handScore > house.handScore {
                 return "player"
-            } else {
+        } else if  house.stayed && player.stayed && house.handScore > player.handScore{
                 return "house"
-            }
-        }
-        ///////
-        if !player.busted && player.handScore > house.handScore {
+//            else if house.stayed && player.stayed {
+//                if player.handScore == house.handScore {
+//                    return "draw"
+//                } else if player.handScore > house.handScore {
+//                    return "player"
+//                } else {
+//                    return "house"
+//                }
+        } else if !player.busted && !house.busted && player.handScore > house.handScore {
             return "player"
-        }
-        if !house.busted && house.handScore > player.handScore {
+        } else if !player.busted && house.busted {
+            return "player"
+        } else if !house.busted && !player.busted && house.handScore > player.handScore {
             return "house"
-        }
-        if player.handScore == house.handScore {
+        } else if !house.busted && player.busted {
+            return "house"
+        } else if player.handScore == house.handScore {
             return "draw"
         }
-        ///////
         return "no"
     }
+    
+//} else if !player.busted && player.handScore > house.handScore {
+//    return "player"
+//} else if !house.busted && house.handScore > player.handScore {
+//    return "house"
+//} else if player.handScore == house.handScore {
+//    return "draw"
+//}
+//return "no"
     
     func award()-> String{
         let winner = self.winner()

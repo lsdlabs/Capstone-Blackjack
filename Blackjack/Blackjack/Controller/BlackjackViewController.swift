@@ -83,6 +83,7 @@ class BlackjackViewController: UIViewController {
         }
         
         gameEventLabel.text = dealer.winner()
+        print(dealer.winner())
     }
     
     
