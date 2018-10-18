@@ -104,8 +104,6 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         //validateTheBetOfTheUser(bet: <#T##Int#>)
         hitButton.isEnabled = true
         standButton.isEnabled = true
-        
-        
     }
     
 
