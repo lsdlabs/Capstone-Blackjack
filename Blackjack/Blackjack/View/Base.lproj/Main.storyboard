@@ -61,7 +61,7 @@
         <!--View Controller-->
         <scene sceneID="Kmk-Dr-w7i">
             <objects>
-                <viewController id="Qyg-cM-MyK" sceneMemberID="viewController">
+                <viewController id="Qyg-cM-MyK" customClass="ViewController" customModule="Blackjack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pDC-Fq-vrR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
