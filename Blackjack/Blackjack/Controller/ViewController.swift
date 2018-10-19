@@ -10,8 +10,8 @@ import GoogleAPIClientForREST
 import GoogleSignIn
 import UIKit
 
-class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
-    
+class ViewController: UIViewController, GIDSignInUIDelegate {
+//    GIDSignInDelegate
     
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
@@ -24,15 +24,15 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure Google Sign-in.
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().scopes = scopes
-        GIDSignIn.sharedInstance().signInSilently()
-        
-        // Add the sign-in button.
-        view.addSubview(signInButton)
-        
+//        // Configure Google Sign-in.
+//        GIDSignIn.sharedInstance().delegate = self
+//        GIDSignIn.sharedInstance().uiDelegate = self
+//        GIDSignIn.sharedInstance().scopes = scopes
+//        GIDSignIn.sharedInstance().signInSilently()
+//
+//        // Add the sign-in button.
+//        view.addSubview(signInButton)
+//
         // Add a UITextView to display output.
         output.frame = view.bounds
         output.isEditable = false
@@ -40,20 +40,22 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         output.isHidden = true
         view.addSubview(output);
+        
+        fetchChannelResource()
     }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
-              withError error: Error!) {
-        if let error = error {
-            showAlert(title: "Authentication Error", message: error.localizedDescription)
-            self.service.authorizer = nil
-        } else {
-            self.signInButton.isHidden = true
-            self.output.isHidden = false
-            self.service.authorizer = user.authentication.fetcherAuthorizer()
-            fetchChannelResource()
-        }
-    }
+//
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+//              withError error: Error!) {
+//        if let error = error {
+//            showAlert(title: "Authentication Error", message: error.localizedDescription)
+//            self.service.authorizer = nil
+//        } else {
+//            self.signInButton.isHidden = true
+//            self.output.isHidden = false
+//            self.service.authorizer = user.authentication.fetcherAuthorizer()
+//            fetchChannelResource()
+//        }
+//    }
     
     
     // List up to 10 files in Drive
@@ -110,4 +112,5 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         present(alert, animated: true, completion: nil)
     }
 }
+
 

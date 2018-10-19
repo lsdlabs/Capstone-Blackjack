@@ -37,26 +37,9 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         disableButtonsBeforeUserEntersBet()
+        setupTheGame()
         //alertForBet()
         //placeBet(withBet: 10) //call with value in textfield
-        print(deck.summary)
-        deck.shuffle()
-        print(deck.summary)
-
-        house.cards.append(deck.drawCard())
-        house.cards.append(deck.drawCard())
-        print(house.cardsInHand)
-        dealerCards.text = house.cardsInHand
-
-        player.cards.append(deck.drawCard())
-        player.cards.append(deck.drawCard())
-        print(player.cardsInHand)
-        playerCards.text = player.cardsInHand
-        print(deck.summary)
-    }
-    
-    //This function sets up the initial state of the blackjack game
-    func setupTheGame() {
 //        print(deck.summary)
 //        deck.shuffle()
 //        print(deck.summary)
@@ -71,6 +54,24 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
 //        print(player.cardsInHand)
 //        playerCards.text = player.cardsInHand
 //        print(deck.summary)
+    }
+    
+    //This function sets up the initial state of the blackjack game
+    func setupTheGame() {
+        print(deck.summary)
+        deck.shuffle()
+        print(deck.summary)
+
+        house.cards.append(deck.drawCard())
+        house.cards.append(deck.drawCard())
+        print(house.cardsInHand)
+        dealerCards.text = house.cardsInHand
+
+        player.cards.append(deck.drawCard())
+        player.cards.append(deck.drawCard())
+        print(player.cardsInHand)
+        playerCards.text = player.cardsInHand
+        print(deck.summary)
     }
     
     @IBAction func playerPressedHit(_ sender: UIButton) {
@@ -110,15 +111,22 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         
         gameEventLabel.text = dealer.winner()
         print(dealer.winner())
+    
     }
     
     @IBAction func playerPressedSubmit(_ sender: UIButton) {
 //        hitButton.isEnabled = false
 //        standButton.isEnabled = false
-        isValidBet()
+        let validBet = isValidBet()
         //validateTheBetOfTheUser(bet: <#T##Int#>)
+        //betTextfield.text = ""
+        if !validBet {
+            hitButton.isEnabled = false
+            standButton.isEnabled = false
+        } else {
         hitButton.isEnabled = true
         standButton.isEnabled = true
+        }
     }
     
 
@@ -204,6 +212,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> (Bool) {
         let text = (betTextfield.text as! NSString).replacingCharacters(in: range, with: string)
         var bet = 0
+        //var validBet = false
         if let intValue = Int(text) {
             bet = intValue
             print("Input is an integer")
@@ -217,12 +226,14 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
             submitBetButton.isEnabled = true
         } else {
             print("Input is not an integer")
+            var validBet = false
             submitBetButton.isEnabled = false
             hitButton.isEnabled = false
             standButton.isEnabled = false
         }
         
         return true
+        
     }
     
     
@@ -240,8 +251,8 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         print(bet)
         guard var betMade = bet else { return false}
         
-        validateTheBetOfTheUser(bet: betMade)
-        return true
+        var validBetCheck = validateTheBetOfTheUser(bet: betMade)
+        return validBetCheck
     }
     
     
@@ -270,16 +281,18 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
 //    }
     //look into textfield delegate methods
     //This function lets the user know if he or she has bet more money than he or she has
-    func validateTheBetOfTheUser(bet: Int){
+    func validateTheBetOfTheUser(bet: Int)-> Bool{
         if bet > player.money {
             print("Please enter an amount less than or equal to the number of tokens you have.")
             invalidBetWarningMessage.text = "Please enter an amount less than or equal to the number of tokens you have."
             hitButton.isEnabled = false
             standButton.isEnabled = false
+            return false
         } else {
         print("\(bet) is an acceptable bet")
+        invalidBetWarningMessage.text = ""
         self.userBet = bet
-        
+            return true
     }
     }
 }
