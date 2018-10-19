@@ -109,6 +109,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
             print(house.cardsInHand)
         }
         
+        standButton.isEnabled = false
         gameEventLabel.text = dealer.winner()
         print(dealer.winner())
     
@@ -128,6 +129,13 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         standButton.isEnabled = true
         }
     }
+    
+    
+    
+    
+    
+    
+    
     
 
     func placeBet(withBet bet: Int){
