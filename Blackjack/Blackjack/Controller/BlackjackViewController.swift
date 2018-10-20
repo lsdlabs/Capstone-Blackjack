@@ -99,6 +99,8 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
             
             dealer.turn(house: house)
             dealerCards.text = house.cardsInHand
+            standButton.isEnabled = false
+            playAgainButton.isEnabled = true
         }
         
     }
