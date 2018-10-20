@@ -86,3 +86,23 @@ func descriptionFor(cardArray: [Card]) -> String {
 }
 
 
+//*******//
+func newRoundDescriptionFor(cardArray: [Card]) -> String {
+    //    var description = "\(cardArray.count)"
+    var description = ""
+    //*******//
+    var cardsInArray = cardArray
+    cardsInArray.removeAll()
+    //*******//
+    var count = 0
+    for eachCard in cardArray{
+        if count % 13 == 0 {
+            description += "\n "
+        }
+        description += " \(eachCard.description)"
+        count += 1
+    }
+    return description
+}
+//*******//
+

@@ -96,7 +96,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dh4-Al-4jQ">
-                                <rect key="frame" x="172" y="551" width="30" height="30"/>
+                                <rect key="frame" x="172" y="540" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="HIT"/>
                                 <connections>
@@ -104,7 +104,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCF-1d-g20">
-                                <rect key="frame" x="163" y="589" width="49" height="30"/>
+                                <rect key="frame" x="163" y="578" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="STAND"/>
                                 <connections>
@@ -147,6 +147,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQY-kp-YNk">
+                                <rect key="frame" x="148" y="616" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play Again?"/>
+                                <connections>
+                                    <action selector="playerPressedPlayAgain:" destination="J7x-HU-URa" eventType="touchUpInside" id="WbL-2v-fkX"/>
+                                    <action selector="playerPressedStand:" destination="J7x-HU-URa" eventType="touchUpInside" id="vmr-P2-3df"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.61000358629999996" green="1" blue="0.60047965839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PLJ-dW-Ew9"/>
@@ -157,6 +166,7 @@
                         <outlet property="gameEventLabel" destination="unA-iT-FuI" id="Lha-YH-4rR"/>
                         <outlet property="hitButton" destination="Dh4-Al-4jQ" id="wCC-1z-814"/>
                         <outlet property="invalidBetWarningMessage" destination="bC5-t9-9ZJ" id="1MY-wd-6cb"/>
+                        <outlet property="playAgainButton" destination="PQY-kp-YNk" id="aEL-gU-LpY"/>
                         <outlet property="playerCards" destination="9AF-zy-1gg" id="qmb-iw-CUk"/>
                         <outlet property="standButton" destination="bCF-1d-g20" id="YTj-QZ-eER"/>
                         <outlet property="submitBetButton" destination="apE-M3-6M2" id="Wyk-h1-GX2"/>

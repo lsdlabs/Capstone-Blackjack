@@ -33,9 +33,23 @@ class Player{
         return self.getStats()
     }
     
+//    ///////
+//    var cardsInHand: String{ return self.getCardsInHand()}
+//    ///////
+    
     ///////
-    var cardsInHand: String{ return self.getCardsInHand()}
+    var cardsInHand: String{
+        get {return self.getCardsInHand()}
+        set { return self.setCardsInHand(string: "")}
+    }
+    
     ///////
+    
+    
+    //*******//
+     var newRoundCardsInHand: String{ return self.getCardsInHand()}
+    //*******//
+    
     
     init(name: String){
         self.name = name
@@ -52,6 +66,13 @@ class Player{
     private func getCardsInHand()-> String {
         var cards = descriptionFor(cardArray: self.cards)
         return cards
+    }
+    ///////
+    
+    ///////
+    private func setCardsInHand(string: String) {
+        var cards = descriptionFor(cardArray:[])
+        
     }
     ///////
     

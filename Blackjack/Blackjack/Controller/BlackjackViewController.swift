@@ -19,10 +19,10 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var hitButton: UIButton!
-    
     @IBOutlet weak var standButton: UIButton!
-    @IBOutlet weak var betTextfield: UITextField!
+    @IBOutlet weak var playAgainButton: UIButton!
     
+    @IBOutlet weak var betTextfield: UITextField!
     @IBOutlet weak var submitBetButton: UIButton!
     
     
@@ -36,8 +36,12 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("before disabling buttons")
         disableButtonsBeforeUserEntersBet()
+        print("after disabling buttons")
+        print("before setting up the game")
         setupTheGame()
+        print("after setting up the game")
         //alertForBet()
         //placeBet(withBet: 10) //call with value in textfield
 //        print(deck.summary)
@@ -58,6 +62,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     
     //This function sets up the initial state of the blackjack game
     func setupTheGame() {
+        print("Is this the source of all of my headaches?")
         print(deck.summary)
         deck.shuffle()
         print(deck.summary)
@@ -112,6 +117,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         standButton.isEnabled = false
         gameEventLabel.text = dealer.winner()
         print(dealer.winner())
+        playAgainButton.isEnabled = true
     
     }
     
@@ -130,6 +136,35 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func playerPressedPlayAgain(_ sender: UIButton) {
+        playerCards.text = ""
+        dealerCards.text = ""
+        //setupTheGame()
+
+
+        print(deck.summary)
+        deck.shuffle()
+        print(deck.summary)
+
+        player.cards.removeAll()
+        player.cards.append(deck.drawCard())
+        player.cards.append(deck.drawCard())
+        print(player.cardsInHand)
+        playerCards.text = player.cardsInHand
+        
+        house.cards.removeAll()
+        house.cards.append(deck.drawCard())
+        house.cards.append(deck.drawCard())
+        print(house.cardsInHand)
+        dealerCards.text = house.cardsInHand
+
+        
+        print(deck.summary)
+    
+        
+    }
+    
+
     
     
     
@@ -171,6 +206,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         hitButton.isEnabled = false
         standButton.isEnabled = false
         submitBetButton.isEnabled = false
+        playAgainButton.isEnabled = false
         betTextfield.delegate = self
         //isValidBet()
     }
