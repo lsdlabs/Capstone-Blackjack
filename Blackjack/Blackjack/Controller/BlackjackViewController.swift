@@ -134,6 +134,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         hitButton.isEnabled = true
         standButton.isEnabled = true
         }
+        betTextfield.text = ""
     }
     
     @IBAction func playerPressedPlayAgain(_ sender: UIButton) {
