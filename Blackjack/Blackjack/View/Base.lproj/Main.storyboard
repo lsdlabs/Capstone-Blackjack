@@ -156,6 +156,20 @@
                                     <action selector="playerPressedStand:" destination="J7x-HU-URa" eventType="touchUpInside" id="vmr-P2-3df"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tokens:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaT-d1-H7j">
+                                <rect key="frame" x="243" y="85" width="59" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZN-ei-2yn">
+                                <rect key="frame" x="317" y="85" width="29" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.61000358629999996" green="1" blue="0.60047965839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PLJ-dW-Ew9"/>
@@ -168,8 +182,10 @@
                         <outlet property="invalidBetWarningMessage" destination="bC5-t9-9ZJ" id="1MY-wd-6cb"/>
                         <outlet property="playAgainButton" destination="PQY-kp-YNk" id="aEL-gU-LpY"/>
                         <outlet property="playerCards" destination="9AF-zy-1gg" id="qmb-iw-CUk"/>
+                        <outlet property="playerTokensLabel" destination="VZN-ei-2yn" id="fDw-cK-UTp"/>
                         <outlet property="standButton" destination="bCF-1d-g20" id="YTj-QZ-eER"/>
                         <outlet property="submitBetButton" destination="apE-M3-6M2" id="Wyk-h1-GX2"/>
+                        <outlet property="tokensLabel" destination="AaT-d1-H7j" id="WEQ-Zu-tZa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcO-pG-BW6" userLabel="First Responder" sceneMemberID="firstResponder"/>

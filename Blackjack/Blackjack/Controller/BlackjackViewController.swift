@@ -14,6 +14,8 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var gameEventLabel: UILabel!
     @IBOutlet weak var playerCards: UILabel!
     @IBOutlet weak var dealerCards: UILabel!
+    @IBOutlet weak var tokensLabel: UILabel!
+    @IBOutlet weak var playerTokensLabel: UILabel!
     
     @IBOutlet weak var invalidBetWarningMessage: UILabel!
     
@@ -329,7 +331,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     //look into textfield delegate methods
     //This function lets the user know if he or she has bet more money than he or she has
     func validateTheBetOfTheUser(bet: Int)-> Bool{
-        if bet > player.money {
+        if bet > player.tokens {
             print("Please enter an amount less than or equal to the number of tokens you have.")
             invalidBetWarningMessage.text = "Please enter an amount less than or equal to the number of tokens you have."
             hitButton.isEnabled = false

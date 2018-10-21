@@ -14,7 +14,7 @@ class Player{
     let name: String
     var cards: [Card] = []
     var stayed: Bool = false
-    var money: Int = 100
+    var tokens: Int = 100
     
     var handScore: Int {
         return self.getHandScore()
@@ -58,7 +58,7 @@ class Player{
     private func getStats()-> String{
         var stats = "Player: \(name)\n Cards In Hand: " + descriptionFor(cardArray: cards)
         stats += "\n handScore: \(handScore)\n blackjack: \(blackjack)\n busted: \(busted)"
-        stats += "\n stayed: \(stayed)\n money: \(money)"
+        stats += "\n stayed: \(stayed)\n tokens: \(tokens)"
         return stats
     }
     
@@ -99,15 +99,15 @@ class Player{
     }
     
     func canPlaceABet(of bet: Int)-> Bool{
-        return money >= bet
+        return tokens >= bet
     }
     
     func didWinAmount(of bet: Int){
-        money += bet
+        tokens += bet
     }
     
     func didLoseAmount(of bet: Int){
-        money -= bet
+        tokens -= bet
     }
 
     
