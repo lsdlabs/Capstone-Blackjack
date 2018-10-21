@@ -14,8 +14,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var homeTableView: UITableView!
     
     
-    var options = ["Play Now", "Watch Tutorial"]
-    var segueIdentifiers = ["showGame", "showTutorial"]
+    var options = ["Play Now", "Watch Tutorial", "Ready for the Big Leagues?"]
+    var segueIdentifiers = ["showGame", "showTutorial", "showSearchForCasinos"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
