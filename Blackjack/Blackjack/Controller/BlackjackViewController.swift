@@ -34,10 +34,13 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     //1. initialise the deck
     let deck = Deck.init()
     var userBet = 0
-    
+    var playerTokens = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        playerTokens = player.tokens
+        playerTokensLabel.text = "\(playerTokens)"
+        
         print("before disabling buttons")
         disableButtonsBeforeUserEntersBet()
         print("after disabling buttons")
@@ -91,6 +94,9 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         if player.busted{
             print("The House Won :(")
             gameEventLabel.text = "The House Won"
+            player.didLoseAmount(of: userBet)
+            playerTokens = player.tokens
+            playerTokensLabel.text = "\(playerTokens)"
             hitButton.isEnabled = false
             
             while house.mustHit{
