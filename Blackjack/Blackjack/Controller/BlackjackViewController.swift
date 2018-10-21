@@ -140,7 +140,6 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
             playerTokensLabel.text = "\(playerTokens)"
         }
         playAgainButton.isEnabled = true
-    
     }
     
     @IBAction func playerPressedSubmit(_ sender: UIButton) {
