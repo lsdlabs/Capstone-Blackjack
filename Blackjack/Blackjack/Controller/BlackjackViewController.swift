@@ -127,6 +127,9 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         standButton.isEnabled = false
         gameEventLabel.text = dealer.winner()
         print(dealer.winner())
+        //if winner = house, tokens - bet
+        //else if winner = player, tokens + bet
+        //else tokens = tokens (or tokens + 0)...or don't do anything...don't need an else
         playAgainButton.isEnabled = true
     
     }
