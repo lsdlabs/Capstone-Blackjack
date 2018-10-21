@@ -130,6 +130,15 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         //if winner = house, tokens - bet
         //else if winner = player, tokens + bet
         //else tokens = tokens (or tokens + 0)...or don't do anything...don't need an else
+        if gameEventLabel.text == "house" {
+            player.didLoseAmount(of: userBet)
+            playerTokens = player.tokens
+            playerTokensLabel.text = "\(playerTokens)"
+        } else if gameEventLabel.text == "player" {
+            player.didWinAmount(of: userBet)
+            playerTokens = player.tokens
+            playerTokensLabel.text = "\(playerTokens)"
+        }
         playAgainButton.isEnabled = true
     
     }
