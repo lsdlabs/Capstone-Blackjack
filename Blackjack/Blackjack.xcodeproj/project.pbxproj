@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		200F89B6217CEE270050EC57 /* GooglePlaceSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F89B5217CEE270050EC57 /* GooglePlaceSearchViewController.swift */; };
+		200F89B8217E2EF80050EC57 /* CasinoLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F89B7217E2EF80050EC57 /* CasinoLocations.swift */; };
+		200F89BA217E42CA0050EC57 /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F89B9217E42CA0050EC57 /* GoogleMapsViewController.swift */; };
 		2071DEC1216B902700996982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071DEC0216B902700996982 /* AppDelegate.swift */; };
 		2071DEC3216B902700996982 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071DEC2216B902700996982 /* ViewController.swift */; };
 		2071DEC6216B902800996982 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2071DEC4216B902700996982 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		12AD08DACE12444B2CF75E5D /* Pods-Blackjack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blackjack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Blackjack/Pods-Blackjack.release.xcconfig"; sourceTree = "<group>"; };
 		200F89B5217CEE270050EC57 /* GooglePlaceSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceSearchViewController.swift; sourceTree = "<group>"; };
+		200F89B7217E2EF80050EC57 /* CasinoLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasinoLocations.swift; sourceTree = "<group>"; };
+		200F89B9217E42CA0050EC57 /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
 		2071DEBD216B902700996982 /* Blackjack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blackjack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2071DEC0216B902700996982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2071DEC2216B902700996982 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				2071DED9216C224500996982 /* Player.swift */,
 				2071DEDB216D1B8100996982 /* Dealer.swift */,
 				2071DEDD216D1BA000996982 /* House.swift */,
+				200F89B7217E2EF80050EC57 /* CasinoLocations.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 				2071DEDF216D3D8800996982 /* HomeViewController.swift */,
 				207D91F2216E4066006F0CE0 /* BlackjackViewController.swift */,
 				200F89B5217CEE270050EC57 /* GooglePlaceSearchViewController.swift */,
+				200F89B9217E42CA0050EC57 /* GoogleMapsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,12 +297,14 @@
 			files = (
 				2071DEDE216D1BA000996982 /* House.swift in Sources */,
 				2071DED8216BCC7200996982 /* Deck.swift in Sources */,
+				200F89BA217E42CA0050EC57 /* GoogleMapsViewController.swift in Sources */,
 				2071DEC3216B902700996982 /* ViewController.swift in Sources */,
 				2071DEE0216D3D8800996982 /* HomeViewController.swift in Sources */,
 				2071DEDC216D1B8100996982 /* Dealer.swift in Sources */,
 				2071DED6216BAA9900996982 /* Card.swift in Sources */,
 				2071DEDA216C224500996982 /* Player.swift in Sources */,
 				200F89B6217CEE270050EC57 /* GooglePlaceSearchViewController.swift in Sources */,
+				200F89B8217E2EF80050EC57 /* CasinoLocations.swift in Sources */,
 				2071DEC1216B902700996982 /* AppDelegate.swift in Sources */,
 				207D91F3216E4066006F0CE0 /* BlackjackViewController.swift in Sources */,
 			);
