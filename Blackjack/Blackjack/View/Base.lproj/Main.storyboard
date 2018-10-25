@@ -221,7 +221,6 @@
                                 <state key="normal" title="Play Again?"/>
                                 <connections>
                                     <action selector="playerPressedPlayAgain:" destination="J7x-HU-URa" eventType="touchUpInside" id="WbL-2v-fkX"/>
-                                    <action selector="playerPressedStand:" destination="J7x-HU-URa" eventType="touchUpInside" id="vmr-P2-3df"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tokens:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaT-d1-H7j">

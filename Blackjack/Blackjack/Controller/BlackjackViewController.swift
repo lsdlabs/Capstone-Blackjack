@@ -171,13 +171,13 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         player.cards.removeAll()
         player.cards.append(deck.drawCard())
         player.cards.append(deck.drawCard())
-        print(player.cardsInHand)
+//        print(player.cardsInHand)
         playerCards.text = player.cardsInHand
         
         house.cards.removeAll()
         house.cards.append(deck.drawCard())
         house.cards.append(deck.drawCard())
-        print(house.cardsInHand)
+//        print(house.cardsInHand)
         dealerCards.text = house.cardsInHand
 
         

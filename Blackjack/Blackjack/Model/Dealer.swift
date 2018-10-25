@@ -144,6 +144,37 @@ class Dealer{
 //}
 //return "no"
     
+    
+    
+    func determineBlackjack()-> String{
+        if player.blackjack && !house.blackjack {
+            return "player"
+        } else if !player.blackjack && house.blackjack {
+            return "house"
+        }
+        else {
+            return ""
+        }
+    }
+    
+    
+    func determineDraw() {
+        
+    }
+    
+    
+    func determineIfPlayerIsTheWinner(){
+        
+    }
+    
+    
+    func determineIfDealerIsTheWinner(){
+        
+    }
+    
+    
+    
+    
     func award()-> String{
         let winner = self.winner()
         switch winner{
