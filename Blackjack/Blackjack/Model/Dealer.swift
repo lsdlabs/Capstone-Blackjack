@@ -90,86 +90,122 @@ class Dealer{
 //        return "no"
 //    }
     
-    func winner() ->String {
-        if player.blackjack && house.blackjack {
-            return "draw"
-        } else if player.blackjack && !house.blackjack {
-            return "player"
-        } else if !player.blackjack && house.blackjack {
-            return "house"
-        } else if player.busted && house.busted {
-            return "draw"
-        } else if player.busted && !house.busted {
-            return "house"
-        } else if !player.busted && house.busted {
-            return "player"
-        } else if player.cards.count == 9 && !player.busted {
-            return "player"
-        } else if house.stayed && player.stayed && player.handScore == house.handScore{
-                return "draw"
-        } else if house.stayed && player.stayed && player.busted && house.busted {
-            return "draw"
-        } else if  house.stayed && player.stayed && player.handScore > house.handScore {
-                return "player"
-        } else if  house.stayed && player.stayed && house.handScore > player.handScore{
-                return "house"
-//            else if house.stayed && player.stayed {
-//                if player.handScore == house.handScore {
-//                    return "draw"
-//                } else if player.handScore > house.handScore {
-//                    return "player"
-//                } else {
-//                    return "house"
-//                }
-        } else if !player.busted && !house.busted && player.handScore > house.handScore {
-            return "player"
-        } else if !player.busted && house.busted {
-            return "player"
-        } else if !house.busted && !player.busted && house.handScore > player.handScore {
-            return "house"
-        } else if !house.busted && player.busted {
-            return "house"
-        } else if player.handScore == house.handScore {
-            return "draw"
-        }
-        return "no"
-    }
+//    func winner() ->String {
+//        if player.blackjack && house.blackjack {
+//            return "draw"
+//        } else if player.blackjack && !house.blackjack {
+//            return "player"
+//        } else if !player.blackjack && house.blackjack {
+//            return "house"
+//        } else if player.busted && house.busted {
+//            return "draw"
+//        } else if player.busted && !house.busted {
+//            return "house"
+//        } else if !player.busted && house.busted {
+//            return "player"
+//        } else if player.cards.count == 9 && !player.busted {
+//            return "player"
+//        } else if house.stayed && player.stayed && player.handScore == house.handScore{
+//                return "draw"
+//        } else if house.stayed && player.stayed && player.busted && house.busted {
+//            return "draw"
+//        } else if  house.stayed && player.stayed && player.handScore > house.handScore {
+//                return "player"
+//        } else if  house.stayed && player.stayed && house.handScore > player.handScore{
+//                return "house"
+////            else if house.stayed && player.stayed {
+////                if player.handScore == house.handScore {
+////                    return "draw"
+////                } else if player.handScore > house.handScore {
+////                    return "player"
+////                } else {
+////                    return "house"
+////                }
+//        } else if !player.busted && !house.busted && player.handScore > house.handScore {
+//            return "player"
+//        } else if !player.busted && house.busted {
+//            return "player"
+//        } else if !house.busted && !player.busted && house.handScore > player.handScore {
+//            return "house"
+//        } else if !house.busted && player.busted {
+//            return "house"
+//        } else if player.handScore == house.handScore {
+//            return "draw"
+//        }
+//        return "no"
+//    }
+//
+////} else if !player.busted && player.handScore > house.handScore {
+////    return "player"
+////} else if !house.busted && house.handScore > player.handScore {
+////    return "house"
+////} else if player.handScore == house.handScore {
+////    return "draw"
+////}
+////return "no"
+//
     
-//} else if !player.busted && player.handScore > house.handScore {
-//    return "player"
-//} else if !house.busted && house.handScore > player.handScore {
-//    return "house"
-//} else if player.handScore == house.handScore {
-//    return "draw"
-//}
-//return "no"
+    
+    func winner() ->String {
+        var result = ""
+        result = determineBlackjack()
+        result = determineDraw()
+        result = determineIfPlayerIsTheWinner()
+        result = determineIfDealerIsTheWinner()
+        
+        return result
+    }
     
     
     
     func determineBlackjack()-> String{
         if player.blackjack && !house.blackjack {
-            return "player"
+            return "Congrats! You Won!"
         } else if !player.blackjack && house.blackjack {
-            return "house"
+            return "The House Won0"
         }
         else {
-            return ""
+            return "No Blackjack"
         }
     }
     
     
-    func determineDraw() {
-        
+    func determineDraw()-> String {
+        if player.blackjack && house.blackjack {
+            return "It's A Draw"
+        }
+        return "Not a Draw"
     }
     
     
-    func determineIfPlayerIsTheWinner(){
-        
+    func determineIfPlayerIsTheWinner()-> String{
+        if !player.busted && house.busted {
+            return "Congrats! You Won!"
+        } else if house.stayed && player.stayed && player.handScore > house.handScore {
+            return "Congrats! You Won!"
+        } else if !player.busted && !house.busted && player.handScore > house.handScore {
+            return "Congrats! You Won!"//might not need this
+        }
+        return "The Player Did Not Win"
     }
     
-    
-    func determineIfDealerIsTheWinner(){
-        
+    func determineIfDealerIsTheWinner()-> String{
+        if player.busted && house.busted {
+            return "The House Won1"
+        } else if player.busted && !house.busted {
+            return "Busted! The House Won2"
+        } else if house.stayed && player.stayed && player.handScore == house.handScore{
+            return "The House Won3"
+        } else if house.stayed && player.stayed && player.busted && house.busted {
+            return "The House Won4"//might nt need this
+        } else if  house.stayed && player.stayed && house.handScore > player.handScore{
+            return "The House Won5"
+        } else if !house.busted && !player.busted && house.handScore > player.handScore {
+            return "The House Won6"
+        } //else if player.handScore == house.handScore {
+          //  return "The House Won7"
+        //}
+        return "The House Did Not Win"
     }
     
     

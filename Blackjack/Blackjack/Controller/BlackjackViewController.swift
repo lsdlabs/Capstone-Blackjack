@@ -159,6 +159,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func playerPressedPlayAgain(_ sender: UIButton) {
+        gameEventLabel.text = ""
         playerCards.text = ""
         dealerCards.text = ""
         //setupTheGame()
