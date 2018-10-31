@@ -40,29 +40,10 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         playerTokens = player.tokens
         playerTokensLabel.text = "\(playerTokens)"
-        
-        print("before disabling buttons")
         disableButtonsBeforeUserEntersBet()
-        print("after disabling buttons")
-        print("before setting up the game")
         setupTheGame()
-        print("after setting up the game")
-        //alertForBet()
-        //placeBet(withBet: 10) //call with value in textfield
-//        print(deck.summary)
-//        deck.shuffle()
-//        print(deck.summary)
-//
-//        house.cards.append(deck.drawCard())
-//        house.cards.append(deck.drawCard())
-//        print(house.cardsInHand)
-//        dealerCards.text = house.cardsInHand
-//
-//        player.cards.append(deck.drawCard())
-//        player.cards.append(deck.drawCard())
-//        print(player.cardsInHand)
-//        playerCards.text = player.cardsInHand
-//        print(deck.summary)
+       
+       
     }
     
     //This function sets up the initial state of the blackjack game
@@ -93,7 +74,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         
         if player.busted{
             print("The House Won :(")
-            gameEventLabel.text = "The House Won"
+            gameEventLabel.text = "Busted :( The House Won"
             player.didLoseAmount(of: userBet)
             playerTokens = player.tokens
             playerTokensLabel.text = "\(playerTokens)"
@@ -125,22 +106,145 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         }
         
         standButton.isEnabled = false
-        gameEventLabel.text = dealer.winner()
+        //gameEventLabel.text = dealer.winner()
+        gameEventLabel.text = winner(houseHandScore: house.handScore, playerHandSCore: player.handScore)
+        print("HOUSE HANDSCORE: \(house.handScore)")
+        print("PLAYER HANDSCORE: \(player.handScore)")
         print(dealer.winner())
         //if winner = house, tokens - bet
         //else if winner = player, tokens + bet
         //else tokens = tokens (or tokens + 0)...or don't do anything...don't need an else
-        if gameEventLabel.text == "house" {
+        if gameEventLabel.text == "The House Won" {
             player.didLoseAmount(of: userBet)
             playerTokens = player.tokens
             playerTokensLabel.text = "\(playerTokens)"
-        } else if gameEventLabel.text == "player" {
+        } else if gameEventLabel.text == "Congrats! You Won!" {
             player.didWinAmount(of: userBet)
+            playerTokens = player.tokens
+            playerTokensLabel.text = "\(playerTokens)"
+        } else if gameEventLabel.text == "It's A Draw. The House Won" {
+            player.didLoseAmount(of: userBet)
             playerTokens = player.tokens
             playerTokensLabel.text = "\(playerTokens)"
         }
         playAgainButton.isEnabled = true
     }
+    
+    
+    
+    ///////
+    
+    
+    
+    
+    
+    func winner(houseHandScore: Int, playerHandSCore: Int) -> String {
+        
+        var dealerBlackjack = determineBlackjackDealer()
+        var playerBlackjack = determineBlackjackPlayer()
+        var draw = determineDraw()
+        var playerWon = determineIfPlayerIsTheWinner()
+        var dealerWon = determineIfDealerIsTheWinner()
+        
+        if dealerBlackjack {
+            print("HOUSE HANDSCORE1: \(house.handScore)")
+            print("PLAYER HANDSCORE1: \(player.handScore)")
+            return "The House Won"
+        } else if playerBlackjack {
+            print("HOUSE HANDSCORE2: \(house.handScore)")
+            print("PLAYER HANDSCORE2: \(player.handScore)")
+            return "Congrats! You Won!"
+        } else if draw {
+            print("HOUSE HANDSCORE3: \(house.handScore)")
+            print("PLAYER HANDSCORE3: \(player.handScore)")
+            return "It's A Draw. The House Won"
+        } else if playerWon {
+            print("HOUSE HANDSCORE4: \(house.handScore)")
+            print("PLAYER HANDSCORE4: \(player.handScore)")
+            return "Congrats! You Won!"
+        } else if dealerWon {
+            print("HOUSE HANDSCORE5: \(house.handScore)")
+            print("PLAYER HANDSCORE5: \(player.handScore)")
+            return "The House Won"
+        }
+        return "I don't know what is going on"
+    }
+    
+    
+    
+    func determineBlackjackDealer()-> Bool {
+        if !player.blackjack && house.blackjack{
+            return true
+        } else {
+            return false
+        }
+        
+    }
+    
+    func determineBlackjackPlayer()-> Bool {
+        if player.blackjack && !house.blackjack {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func determineDraw()-> Bool {
+        if player.blackjack && house.blackjack {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    
+    func determineIfPlayerIsTheWinner()-> Bool {
+        if !player.busted && house.busted {
+            return true
+        } else if house.stayed && player.stayed && player.handScore > house.handScore {
+            return true
+        } else if !player.busted && !house.busted && player.handScore > house.handScore {
+            return true//might not need this
+        } else {
+            return false
+        }
+    }
+    
+    func determineIfDealerIsTheWinner()-> Bool { //could use ||, might seem to long
+        if player.busted && house.busted {
+            print("Scenario1")
+            return true
+        } else if player.busted && !house.busted {
+            print("Scenario2")
+            return true
+        } else if house.stayed && player.stayed && player.handScore == house.handScore{
+            print("Scenario3")
+            return true
+        } else if house.stayed && player.stayed && player.busted && house.busted {
+            print("Scenario4")
+            return true//might not need this
+        } else if  house.stayed && player.stayed && house.handScore > player.handScore{
+            print("Scenario5")
+            return true
+        } else if !house.busted && !player.busted && house.handScore > player.handScore {
+            print("Scenario6")
+            return true
+        } else if player.handScore == house.handScore {
+            print("Scenario7")
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    
+    
+    
+    
+    ///////
+    
+    
+    
     
     @IBAction func playerPressedSubmit(_ sender: UIButton) {
 //        hitButton.isEnabled = false
@@ -200,28 +304,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-//    func allowedCharacters(){
-//       // betTextfield.delegate = self
-//
-//        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//
-//            let allowedCharacters = ".0123456789"
-//            let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
-//            let typedCharacterSet = CharacterSet(charactersIn: string)
-//
-//            return allowedCharacterSet.isSuperset(of: typedCharacterSet)
-//
-//        }
-//    }
-    
-//    func enterABet()-> String{
-//         betTextfield.delegate = self
-//        guard let bet = betTextfield.text else { return  ""}
-//        }
-//
-//    return "This field" 
-//}
-//
+
     
     
     //This function disables the button to submit a bet, and the hit and stand buttons before the user enters a bet
@@ -234,44 +317,10 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         //isValidBet()
     }
     
-    //makes sure only numbers are entered
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> (Bool, Int) {
-//        let text = (betTextfield.text as! NSString).replacingCharacters(in: range, with: string)
-//        var bet = 0
-//        if let intValue = Int(text) {
-//            bet = intValue
-//            print("Input is an integer")
-//            submitBetButton.isEnabled = true
-//        } else {
-//            print("Input is not an integer")
-//            submitBetButton.isEnabled = false
-//        }
-//        return (true, bet)
-//    }
+  
     
     
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> (Bool) {
-//        let text = (betTextfield.text as! NSString).replacingCharacters(in: range, with: string)
-//        var bet = 0
-//        if let intValue = Int(text) {
-//            bet = intValue
-//            print("Input is an integer")
-//            var validBet = isValidBet()
-//            if validBet{
-//                submitBetButton.isEnabled = true
-//                hitButton.isEnabled = true
-//                standButton.isEnabled = true
-//
-//            }
-//            submitBetButton.isEnabled = true
-//        } else {
-//            print("Input is not an integer")
-//            submitBetButton.isEnabled = false
-//            hitButton.isEnabled = false
-//            standButton.isEnabled = false
-//        }
-//        return true
-//    }
+
     
     
     
@@ -307,7 +356,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    //determines if the bet is valid soley based on input, not if it's a "legal" bet
+    //determines if the bet is valid solely based on input, not if it's a "legal" bet
     //this method then calls to validateTheBetOfTheUser to ensure the user has enough money/tokens
     func isValidBet()-> Bool{
         //let bet = Int(betTextfield.text!)
@@ -323,30 +372,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //converts textfield input to an int, checks to see if the bet is allowed, if bet is allowed, funds are added to the player's total
-//    func isValidBet()-> Bool{
-//        //let bet = Int(betTextfield.text!)
-//        //if betTextfield
-//
-//        guard var betString = betTextfield.text else { return false }
-//        var bet = Int(betString)
-//        print(bet)
-//        guard var betMade = bet else { return false}
-////        if player.canPlaceABet(of: betMade){
-////            //player.didWinAmount(of: betMade)//can't do this yet...this can only be done if the player wins the round
-////            //commence game
-////            print("hit button is enabled")
-////            hitButton.isEnabled = true
-////            print("stand button is enabled")
-////            standButton.isEnabled = true
-////            return true
-////        } else {
-////            return false
-////        }
-//        validateTheBetOfTheUser(bet: betMade)
-//        return true
-//    }
-    //look into textfield delegate methods
+ 
     //This function lets the user know if he or she has bet more money than he or she has
     func validateTheBetOfTheUser(bet: Int)-> Bool{
         if bet > player.tokens {
@@ -363,6 +389,24 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

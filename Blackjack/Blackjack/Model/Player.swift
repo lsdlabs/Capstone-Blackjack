@@ -79,7 +79,7 @@ class Player{
     private func getHandScore()-> Int{
         var score: Int = 0
         
-        for card in cards{
+        for card in cards{  //calculates card total
             score += card.cardValue
         }
         //need to check if the player has an ace
