@@ -9,6 +9,7 @@
 import Google
 import GoogleSignIn
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        FIRApp.configure()
+        //return true
     }
     
     func application(_ application: UIApplication,

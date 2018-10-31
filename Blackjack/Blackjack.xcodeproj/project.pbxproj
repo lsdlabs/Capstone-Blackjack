@@ -23,6 +23,7 @@
 		2071DEE0216D3D8800996982 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071DEDF216D3D8800996982 /* HomeViewController.swift */; };
 		207D91F3216E4066006F0CE0 /* BlackjackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207D91F2216E4066006F0CE0 /* BlackjackViewController.swift */; };
 		20AD6BBA2179132100415A5D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20AD6BB92179132100415A5D /* GoogleService-Info.plist */; };
+		20D11BF0218A66E000A5FC6E /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BEF218A66E000A5FC6E /* Tokens.swift */; };
 		36D188A2B7DC287A05137E42 /* Pods_Blackjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21087A7B661D1A5FD7B64B4E /* Pods_Blackjack.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		2071DEDF216D3D8800996982 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		207D91F2216E4066006F0CE0 /* BlackjackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackViewController.swift; sourceTree = "<group>"; };
 		20AD6BB92179132100415A5D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		20D11BEF218A66E000A5FC6E /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
 		21087A7B661D1A5FD7B64B4E /* Pods_Blackjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blackjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFEC352C267BE8430148720 /* Pods-Blackjack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blackjack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blackjack/Pods-Blackjack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 				2071DEDB216D1B8100996982 /* Dealer.swift */,
 				2071DEDD216D1BA000996982 /* House.swift */,
 				200F89B7217E2EF80050EC57 /* CasinoLocations.swift */,
+				20D11BEF218A66E000A5FC6E /* Tokens.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				200F89B8217E2EF80050EC57 /* CasinoLocations.swift in Sources */,
 				2071DEC1216B902700996982 /* AppDelegate.swift in Sources */,
 				207D91F3216E4066006F0CE0 /* BlackjackViewController.swift in Sources */,
+				20D11BF0218A66E000A5FC6E /* Tokens.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

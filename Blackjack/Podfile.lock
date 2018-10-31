@@ -1,6 +1,9 @@
 PODS:
   - Firebase (3.17.0):
     - Firebase/Core (= 3.17.0)
+  - Firebase/Auth (3.17.0):
+    - Firebase/Core
+    - FirebaseAuth (= 3.1.1)
   - Firebase/Core (3.17.0):
     - FirebaseAnalytics (= 3.9.0)
     - FirebaseCore (= 3.6.0)
@@ -8,6 +11,10 @@ PODS:
     - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseAuth (3.1.1):
+    - FirebaseAnalytics (~> 3.7)
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseCore (3.6.0):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseInstanceID (1.0.10):
@@ -47,6 +54,8 @@ PODS:
 
 DEPENDENCIES:
   - Firebase
+  - Firebase/Auth
+  - Firebase/Core
   - Google/SignIn (~> 3.0.3)
   - GoogleAPIClientForREST/YouTube (~> 1.2.1)
 
@@ -54,6 +63,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Firebase
     - FirebaseAnalytics
+    - FirebaseAuth
     - FirebaseCore
     - FirebaseInstanceID
     - Google
@@ -66,6 +76,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Firebase: 4b66b5b59c43edac745b87f0c87e42cdd0279c13
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
+  FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   Google: cd92fab98f800f509da88c1e0c570275713bc9d5
@@ -75,6 +86,6 @@ SPEC CHECKSUMS:
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
 
-PODFILE CHECKSUM: 8ad57ccac1ddebca90e8397cba1f1eccc6e92291
+PODFILE CHECKSUM: ebf5238df07d46364d5b995544eaf0ba270c6d8e
 
 COCOAPODS: 1.5.3

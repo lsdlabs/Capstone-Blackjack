@@ -38,6 +38,8 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Documents folder is: \(documentsDirectory())")
+        print("Data File Path is: \(dataFilePath())")
         playerTokens = player.tokens
         playerTokensLabel.text = "\(playerTokens)"
         disableButtonsBeforeUserEntersBet()
@@ -65,6 +67,11 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         print(deck.summary)
     }
     
+    
+    
+    
+    // MARK: Actions
+    
     @IBAction func playerPressedHit(_ sender: UIButton) {
         
         hitButton.isEnabled = true
@@ -90,6 +97,8 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
             dealerCards.text = house.cardsInHand
             standButton.isEnabled = false
             playAgainButton.isEnabled = true
+            
+            saveScore()
         }
         
     }
@@ -128,11 +137,100 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
             playerTokensLabel.text = "\(playerTokens)"
         }
         playAgainButton.isEnabled = true
+        saveScore()
     }
     
     
     
-    ///////
+    
+    
+    
+    
+    @IBAction func playerPressedSubmit(_ sender: UIButton) {
+//        hitButton.isEnabled = false
+//        standButton.isEnabled = false
+        let validBet = isValidBet()
+        //validateTheBetOfTheUser(bet: <#T##Int#>)
+        //betTextfield.text = ""
+        if !validBet {
+            hitButton.isEnabled = false
+            standButton.isEnabled = false
+        } else {
+        hitButton.isEnabled = true
+        standButton.isEnabled = true
+        }
+        betTextfield.text = ""
+    }
+    
+    @IBAction func playerPressedPlayAgain(_ sender: UIButton) {
+        gameEventLabel.text = ""
+        playerCards.text = ""
+        dealerCards.text = ""
+        //setupTheGame()
+
+
+        print(deck.summary)
+        deck.shuffle()
+        print(deck.summary)
+
+        player.cards.removeAll()
+        player.cards.append(deck.drawCard())
+        player.cards.append(deck.drawCard())
+//        print(player.cardsInHand)
+        playerCards.text = player.cardsInHand
+        
+        house.cards.removeAll()
+        house.cards.append(deck.drawCard())
+        house.cards.append(deck.drawCard())
+//        print(house.cardsInHand)
+        dealerCards.text = house.cardsInHand
+
+        
+        print(deck.summary)
+    
+        saveScore()
+        
+    }
+    
+    
+    
+    
+    // MARK: Methods
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print("Printing Pathss var")
+        print(paths)
+        return paths[0]
+    }
+    
+    func dataFilePath() ->URL {
+        return documentsDirectory().appendingPathComponent("Blackjack.plist")
+    }
+    
+    
+    func saveScore() {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(playerTokens)
+            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+        } catch {
+            print("Error encoding playerTokens integer value")
+        }
+    }
+    
+    
+//    func loadContacts() {
+//        let path = dataFilePath()  //datafilelocation
+//        if let data = try? Data(contentsOf: path) { //makking a data object and sticking the contacts of our plist in there
+//            let decoder = PropertyListDecoder()
+//            do {
+//                playerTokens = try decoder.decode([Contact].self, from: data)//try to get the stuff from data and decode it into our contacts
+//            } catch {
+//                print("Error decoding item from array!")
+//            }
+//        }
+//    }
     
     
     
@@ -237,68 +335,7 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    
-    
-    
-    ///////
-    
-    
-    
-    
-    @IBAction func playerPressedSubmit(_ sender: UIButton) {
-//        hitButton.isEnabled = false
-//        standButton.isEnabled = false
-        let validBet = isValidBet()
-        //validateTheBetOfTheUser(bet: <#T##Int#>)
-        //betTextfield.text = ""
-        if !validBet {
-            hitButton.isEnabled = false
-            standButton.isEnabled = false
-        } else {
-        hitButton.isEnabled = true
-        standButton.isEnabled = true
-        }
-        betTextfield.text = ""
-    }
-    
-    @IBAction func playerPressedPlayAgain(_ sender: UIButton) {
-        gameEventLabel.text = ""
-        playerCards.text = ""
-        dealerCards.text = ""
-        //setupTheGame()
 
-
-        print(deck.summary)
-        deck.shuffle()
-        print(deck.summary)
-
-        player.cards.removeAll()
-        player.cards.append(deck.drawCard())
-        player.cards.append(deck.drawCard())
-//        print(player.cardsInHand)
-        playerCards.text = player.cardsInHand
-        
-        house.cards.removeAll()
-        house.cards.append(deck.drawCard())
-        house.cards.append(deck.drawCard())
-//        print(house.cardsInHand)
-        dealerCards.text = house.cardsInHand
-
-        
-        print(deck.summary)
-    
-        
-    }
-    
-
-    
-    
-    
-    
-    
-    
-    
 
     func placeBet(withBet bet: Int){
         
@@ -316,11 +353,6 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         betTextfield.delegate = self
         //isValidBet()
     }
-    
-  
-    
-    
-
     
     
     
@@ -351,9 +383,6 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
         return true
         
     }
-    
-    
-    
     
     
     //determines if the bet is valid solely based on input, not if it's a "legal" bet
@@ -389,6 +418,19 @@ class BlackjackViewController: UIViewController, UITextFieldDelegate {
     }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
